@@ -10,7 +10,7 @@ class UserTrees extends React.Component {
     // Rene: af5ea84835f24a6ca3df8d063044f1df
     // Thomas: de96a749d3904c2f87b34b92a052916a
     // Thomas: 534da741b327459eb117f4cc93acd98e
-    const webMapId = '534da741b327459eb117f4cc93acd98e';
+    const webMapId = 'd601683709dc415b99ddc1bc66a6d8eb';
     const userId = 3643;
 
     this.state = {

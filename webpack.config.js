@@ -4,9 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         bundle: [
-            'url-polyfill',
-            'url-search-params',
-            './src/js/app.jsx'
+            './src/js/app.js'
         ]
     },
     output: {

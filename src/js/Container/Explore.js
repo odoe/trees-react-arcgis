@@ -11,29 +11,25 @@ class Explore extends React.Component {
     // Rene: af5ea84835f24a6ca3df8d063044f1df
     // Thomas: de96a749d3904c2f87b34b92a052916a
     // Thomas: 534da741b327459eb117f4cc93acd98e
-    const webMapId = '534da741b327459eb117f4cc93acd98e';
+    const webMapId = 'd601683709dc415b99ddc1bc66a6d8eb';
 
     const mapLayers = {
-      ttc_trees: 'Planted Trees',
+      'Tree Inventory': 'Planted Trees',
       existing_forest: 'Existing forest',
       restoration_opportunities: 'Restoration Opportunities'
     };
 
-    const activeMapLayers = ['ttc_trees'];
+    const activeMapLayers = ['Tree Inventory'];
 
     this.state = {
       webMapId: webMapId,
       mapLayers: mapLayers,
       activeMapLayers: activeMapLayers
     };
-
-    console.log(activeMapLayers);
-
     this.onActiveMapLayersChange = this.onActiveMapLayersChange.bind(this);
   }
 
   onActiveMapLayersChange(activeMapLayers) {
-    console.log(activeMapLayers);
     this.setState({activeMapLayers});
   }
 
