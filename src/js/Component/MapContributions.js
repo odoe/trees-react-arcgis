@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {WebMap} from 'react-arcgis';
 
-export default class TreeComponent extends React.Component {
+export default class MapContributions extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       status: 'loading',
       map: null,
-      view: null
+      view: null,
+      userId: ''
     };
 
     this.handleFail = this.handleFail.bind(this);
@@ -31,11 +31,10 @@ export default class TreeComponent extends React.Component {
   }
 
   handleLoad(map, view) {
-    const url = new URL(window.location.href);
     const user_id = this.props.userId;
     // FIND TREE LAYER //
     const tree_inventory_layer = map.layers.find(layer => {
-      return (layer.title === "TreeInventory");
+      return (layer.title === "Tree Inventory");
     });
 
     //
@@ -52,16 +51,13 @@ export default class TreeComponent extends React.Component {
       query.where = `user_id = ${user_id}`;
       tree_inventory_layer.queryFeatures(query)
         .then(({features}) => {
-          view.goTo({target: features, scale: 10000});
-          console.log('features', features.length);
-          // in this case we know we only have one tree
-          const feature = features[0];
-          console.log(this.props.store);
-          this.props.store.tree = feature.attributes;
+          if (features.length) {
+            view.goTo({target: features, scale: 10000});
+          }
         })
         .catch(error => console.log(error.message));
     }
-    this.setState({map, view});
+    this.setState({map, view, status: 'loaded'});
   }
 
   handleFail(e) {

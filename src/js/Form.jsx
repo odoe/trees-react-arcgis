@@ -25,7 +25,7 @@ export default class FormComponent extends React.Component {
 
     render() {
         return (
-          <div class='tree-form'>
+          <div className='tree-form'>
             <label>User ID: {this.state.user_id}</label>
             <br />
             <label>User Name: {this.state.user_name}</label>
